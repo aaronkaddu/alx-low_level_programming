@@ -1,8 +1,3 @@
-/*
- * File: 6-puts2.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**

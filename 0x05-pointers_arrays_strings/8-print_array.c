@@ -1,8 +1,3 @@
-/*
- * File: 8-print_array.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 #include <stdio.h>
 
