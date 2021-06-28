@@ -1,8 +1,3 @@
-/*
- * File: 3-puts.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**

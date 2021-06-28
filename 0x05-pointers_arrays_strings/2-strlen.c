@@ -1,8 +1,3 @@
-/*
- * File: 2-strlen.c
- * Auth: Brennan D Baraban
- */
-
 #include "holberton.h"
 
 /**
