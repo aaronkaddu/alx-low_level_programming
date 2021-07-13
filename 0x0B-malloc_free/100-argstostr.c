@@ -1,45 +1,86 @@
 #include "holberton.h"
-#include <stdlib.h>
+
+char *_strcat(char *dest, char *src);
 
 /**
- * argstostr - Concatenates all arguments of the program into a string;
- *             arguments are separated by a new line in the string.
- * @ac: The number of arguments passed to the program.
- * @av: An array of pointers to the arguments.
+ * argstostr - concatenates all the arguments
+ * @av: the content
+ * @ac: the size of the content
  *
- * Return: If ac == 0, av == NULL, or the function fails - NULL.
- *         Otherwise - a pointer to the new string.
+ * Return: a pointer to a new string
  */
 char *argstostr(int ac, char **av)
 {
-	char *str;
-	int arg, byte, index, size = ac;
+	char *new, *salt;
+	int i, j, k;
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	for (arg = 0; arg < ac; arg++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			size++;
+		return (NULL);
+	}
+	else
+	{
+		for (i = 0, k = 0 ; i < ac ; i++, k++)
+		{
+			for (j = 0 ; av[i][j] != '\0' ; j++, k++)
+			{
+				;
+			}
+		}
+		new = malloc(sizeof(char) * (k + 1));
+		salt = "\n";
+		for (i = 0 ; i < ac ; i++)
+		{
+			new = _strcat(new, av[i]);
+			if (new == NULL)
+			{
+				return (NULL);
+			}
+			if (i + 1 < ac)
+			{
+				new = _strcat(new, salt);
+				if (new == NULL)
+				{
+					return (NULL);
+				}
+			}
+		}
+
+	}
+	new = _strcat(new, salt);
+	if (new == NULL)
+	{
+		return (NULL);
+	}
+	return (new);
+}
+
+/**
+ * _strcat - concatenates two strings
+ * @dest: input parameter string
+ * @src: input parameter string
+ *
+ * Return: dest
+ */
+char *_strcat(char *dest, char *src)
+{
+	int a;
+	int b;
+
+	a = 0;
+
+	while (dest[a] != 0)
+	{
+		a++;
 	}
 
-	str = malloc(sizeof(char) * size + 1);
+	b = 0;
 
-	if (str == NULL)
-		return (NULL);
-
-	index = 0;
-
-	for (arg = 0; arg < ac; arg++)
+	while (src[b] != 0)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			str[index++] = av[arg][byte];
-
-		str[index++] = '\n';
+		dest[a] = src[b];
+		a++;
+		b++;
 	}
-
-	str[size] = '\0';
-
-	return (str);
+	return (dest);
 }
