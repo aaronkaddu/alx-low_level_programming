@@ -1,45 +1,38 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
- * string_nconcat - concatenates two strings.
- * @s1: first string to copy
- * @s2: second string to copy
- * @n: number of bytes of s2 to copy
- *
- * Return: char pointer to newly allocated place in memory
+ **string_nconcat - a function that concatenates two strings.
+ *@s1 : pointer to string
+ *@s2 : pointer to string
+ *@n : integer
+ *Return: pointer to string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *nstr, *empt;
-	unsigned int i, len, j;
-	unsigned int size;
 
-	len = 0;
-	empt = "";
+
+
+	unsigned int x1, x2, i, j;
+	char *s;
+
 	if (s1 == NULL)
-		s1 = empt;
+		s1 = "";
 	if (s2 == NULL)
-		s2 = empt;
-	while (s1[len] != '\0')
-		len++;
-	size = (len + n) * sizeof(*nstr);
-	nstr = malloc(size + 1);
-	if (nstr == NULL)
+		s2 = "";
+	for (x1 = 0; s1[x1] != '\0'; x1++)
+	;
+	for (x2 = 0; s2[x2] != '\0'; x2++)
+	;
+	if (n >= x2)
+		n = x2;
+	s = malloc(sizeof(char) * (x1 + n + 1));
+	if (s == NULL)
 		return (NULL);
-	i = 0;
-	while (i < size && s1[i] != '\0')
-	{
-		nstr[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (i < size && s2[j] != '\0')
-	{
-		nstr[i] = s2[j];
-		i++;
-		j++;
-	}
-	nstr[i] = '\0';
-	return (nstr);
+	for (i = 0; s1[i] != '\0'; i++)
+		s[i] = s1[i];
+	for (j = x1; j < x1 + n; j++)
+		s[j] = s2[j - x1];
+	s[j] = '\0';
+	return (s);
 }
