@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 /**
  * string_nconcat - copy a string.
  * a blank line
