@@ -1,7 +1,9 @@
-#ifndef _LISTS_H_
-#define _LISTS_H_
+#ifndef LISTS_H
+#define LISTS_H
 
-#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * struct listint_s - singly linked list
  * @n: integer
@@ -15,6 +17,7 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+int _putchar(char c);
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
 listint_t *add_nodeint(listint_t **head, const int n);
@@ -31,4 +34,4 @@ size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
-#endif /* _LISTS_H_ */
+#endif /* LISTS_H */
